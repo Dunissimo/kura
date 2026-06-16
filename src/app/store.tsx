@@ -55,6 +55,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         };
       }
       
+      console.log("API", requestResult);
       const apiUser = requestResult.data.user;
       console.log("API USER", apiUser);
       setUser(apiUser);
