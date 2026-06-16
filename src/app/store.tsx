@@ -88,7 +88,6 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
       setUsers(mapped as any);
     } catch (error) {
-      alert('Что-то пошло не так');
     }
   };
   
@@ -110,7 +109,6 @@ export function AppProvider({ children }: { children: ReactNode }) {
       }));
       setOrders(res);
     } catch (error) {
-      alert('Что-то пошло не так');
     }
   };
   
@@ -127,7 +125,6 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
       setStatuses(res);
     } catch (error) {
-      alert('Что-то пошло не так');
     }
   };
 
@@ -144,7 +141,6 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
       setWorkshops(res);
     } catch (error) {
-      alert('Что-то пошло не так');
     }
   };
 
@@ -166,16 +162,19 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
       setStages(res);
     } catch (error) {
-      alert('Что-то пошло не так');
     }
   };
 
   useEffect(() => {
-    loadUsers();
-    loadStatuses();
-    loadWorkshops();
-    loadStages();
-    loadOrders();
+    try {
+      loadUsers();
+      loadStatuses();
+      loadWorkshops();
+      loadStages();
+      loadOrders();
+    } catch (error) {
+      alert('Что-то пошло не так');
+    }
   }, []);
 
   return (
