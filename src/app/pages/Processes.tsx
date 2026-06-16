@@ -114,7 +114,7 @@ export default function Processes() {
                       </span>
                     )}
                   </td>
-                  <td className="px-4 py-3 text-slate-600 whitespace-nowrap">{master ? master.Name.split(' ').slice(0, 2).join(' ') : '—'}</td>
+                  <td className="px-4 py-3 text-slate-600 whitespace-nowrap">{master ? master.Name?.split(' ').slice(0, 2).join(' ') : '—'}</td>
                   <td className="px-4 py-3 text-slate-500 whitespace-nowrap" style={{ fontFamily: "'JetBrains Mono', monospace" }}>{p.startDate}</td>
                   <td className="px-4 py-3 text-slate-500 whitespace-nowrap" style={{ fontFamily: "'JetBrains Mono', monospace" }}>{p.endDate}</td>
                   <td className="px-4 py-3 text-slate-500 max-w-[140px]">

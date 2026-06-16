@@ -78,10 +78,10 @@ export default function Layout() {
           <div className="flex items-center gap-3 px-2 py-2 rounded" style={{ background: 'var(--sidebar-accent)' }}>
             <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold text-white flex-shrink-0"
               style={{ background: 'var(--sidebar-primary)' }}>
-              {user?.Name.split(' ').slice(0, 2).map(n => n[0]).join('')}
+              {user?.Name?.split(' ').slice(0, 2).map(n => n[0]).join('')}
             </div>
             <div className="flex-1 min-w-0">
-              <div className="text-xs font-medium text-white truncate">{user?.Name.split(' ').slice(0, 2).join(' ')}</div>
+              <div className="text-xs font-medium text-white truncate">{user?.Name?.split(' ').slice(0, 2).join(' ')}</div>
               <div className="text-xs truncate flex items-center gap-1" style={{ color: 'var(--sidebar-foreground)', opacity: 0.5 }}>
                 <Shield size={9} />
                 {ROLE_LABELS[user?.Role ?? '']}

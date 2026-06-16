@@ -113,7 +113,7 @@ export default function Users() {
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold text-white flex-shrink-0"
                         style={{ background: ROLE_COLORS[u.Role] }}>
-                        {u.Name.split(' ').slice(0, 2).map(n => n[0]).join('')}
+                        {u.Name?.split(' ').slice(0, 2).map(n => n[0]).join('')}
                       </div>
                       <span className="font-medium text-slate-800">{u.Name}</span>
                     </div>
