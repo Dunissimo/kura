@@ -42,7 +42,7 @@ export default function Dashboard() {
 
   const overdue = orders.filter(o => {
     const dl = new Date(o.deadline);
-    return dl < new Date() && o.statusId !== 3 && o.statusId !== 4;
+    return dl < new Date() && o.statusId !== 5 && o.statusId !== 6;
   });
 
   return (

@@ -36,14 +36,7 @@ const AppContext = createContext<AppState | null>(null);
 let _nextId = 1000;
 
 export function AppProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(() => {
-    try {
-        const storedUser = localStorage.getItem('user');
-        return storedUser ? JSON.parse(storedUser) : null;
-    } catch {
-        return null;
-    }
-  });
+  const [user, setUser] = useState<User | null>(JSON.parse(localStorage.getItem('user')!) || "");
   const [orders, setOrders] = useState<Order[]>([]);
   const [processes, setProcesses] = useState<Process[]>([]);
   const [statuses, setStatuses] = useState<Status[]>([]);
@@ -63,7 +56,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       }
       
       const apiUser = requestResult.data.user;
-
+      console.log("API USER", apiUser);
       setUser(apiUser);
       localStorage.setItem('user', JSON.stringify(apiUser));
       return {

@@ -221,7 +221,9 @@ export default function Orders() {
                 const st = statusMap[o.statusId];
                 const ws = workshopMap[o.workshopId];
                 const isLast = i === filtered.length - 1;
-                const isOverdue = new Date(o.deadline) < new Date() && o.statusId !== 3 && o.statusId !== 4;
+                console.log(o.statusId);
+                
+                const isOverdue = new Date(o.deadline) < new Date() && o.statusId !== 5 && o.statusId !== 6;
                 console.log(isOverdue);
                 
                 return (
@@ -252,7 +254,7 @@ export default function Orders() {
                     </td>
                     <td className="px-4 py-3 text-slate-500 whitespace-nowrap" style={{ fontFamily: "'JetBrains Mono', monospace" }}>{o.createdAt}</td>
                     <td className="px-4 py-3 whitespace-nowrap" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-                      <span className={!isOverdue ? 'text-red-600 font-medium' : 'text-slate-500'}>{o.deadline}</span>
+                      <span className={isOverdue ? 'text-red-600 font-medium' : 'text-slate-500'}>{o.deadline}</span>
                     </td>
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-1.5">
