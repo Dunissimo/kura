@@ -36,7 +36,10 @@ const AppContext = createContext<AppState | null>(null);
 let _nextId = 1000;
 
 export function AppProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(JSON.parse(localStorage.getItem('user')!) || "");
+  const [user, setUser] = useState<User | null>(() => {
+    const storedUser = localStorage.getItem('user');
+    return storedUser ? JSON.parse(storedUser) : null;
+  });
   const [orders, setOrders] = useState<Order[]>([]);
   const [processes, setProcesses] = useState<Process[]>([]);
   const [statuses, setStatuses] = useState<Status[]>([]);
