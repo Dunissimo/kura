@@ -37,8 +37,12 @@ let _nextId = 1000;
 
 export function AppProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(() => {
-    const storedUser = localStorage.getItem('user');
-    return storedUser ? JSON.parse(storedUser) : null;
+    try {
+        const storedUser = localStorage.getItem('user');
+        return storedUser ? JSON.parse(storedUser) : null;
+    } catch {
+        return null;
+    }
   });
   const [orders, setOrders] = useState<Order[]>([]);
   const [processes, setProcesses] = useState<Process[]>([]);
