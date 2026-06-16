@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const API_URL = 'https://kur-backend-pink.vercel.app/';
+export const API_URL = 'https://kur-backend-qwfo.vercel.app/';
 // export const API_URL = 'http://localhost:3000/';
 
 export const api = axios.create({
